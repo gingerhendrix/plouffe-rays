@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 const Chord = ({cx, cy, r, a, b}) =>
-  <line x1={cx + r*Math.cos(a)} y1={cy + r*Math.sin(a)} x2={cx + r*Math.cos(b)} y2={cy + r*Math.sin(b)} stroke="black"/>
+  <line x1={cx + r*Math.cos(a)} y1={cy + r*Math.sin(a)} x2={cx + r*Math.cos(b)} y2={cy + r*Math.sin(b)} stroke="#339966" />
 
 class App extends Component {
   constructor(props) {
@@ -21,15 +21,15 @@ class App extends Component {
 
   render() {
     const { t } = this.state;
-    const cx = 250;
-    const cy = 250;
-    const r = 200;
-    const m = 193;
+    const cx = 450;
+    const cy = 450;
+    const r = 400;
+    const m = 290;
     const k = 2 + t*0.005;
-    const showCircle = true;
+    const showCircle = false;
     return (
       <div className="App">
-        <svg width="500" height="500">
+        <svg width="850" height="850">
           <g>
             { showCircle ?
               <circle cx={cx} cy={cy} r={r} fill="none" stroke="black" /> :
