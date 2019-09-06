@@ -1,17 +1,58 @@
 {
-  "name": "plouffe-rays",
-  "version": "0.1.0",
-  "private": true,
-  "homepage" : "http://gingerhendrix.github.io/plouffe-rays",
-  "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10"
+  "name": "@gingerhendrix/plouffe-rays",
+  "version": "1.0.0",
+  "description": "React components to draw catacaustic curves on the unit circle",
+  "author": "gingerhendrix",
+  "license": "MIT",
+  "repository": "gingerhendrix/plouffe-rays",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "rm -rf docs/ && react-scripts build && mv build docs/",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "test": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "prepare": "yarn run build",
+    "predeploy": "cd example && yarn install && yarn run build",
+    "deploy": "gh-pages -d example/build"
+  },
+  "dependencies": {
+    "@gingerhendrix/react-animation-controls": "^1.0.0",
+    "@gingerhendrix/use-interval-timer": "^1.0.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.5.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@svgr/rollup": "^4.3.2",
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.0.5",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "cross-env": "^5.1.4",
+    "gh-pages": "^2.1.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.1",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-typescript2": "^0.24.0",
+    "rollup-plugin-url": "^2.2.2",
+    "typescript": "^3.6.2"
+  },
+  "files": [
+    "dist"
+  ]
 }
