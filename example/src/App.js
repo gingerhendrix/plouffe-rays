@@ -3,18 +3,28 @@ import 'rc-slider/assets/index.css';
 
 import { PlouffeRay, AnimatedN, AnimatedK } from '@gingerhendrix/plouffe-rays'
 
+const Example = ({title, children}) => (
+  <div style={{width: 300}}>
+    <h1>{title}</h1>
+    {children}
+  </div>
+);
+
 export default class App extends Component {
   render () {
     return (
       <div>
-        <h1>Basic</h1>
-        <PlouffeRay width={300} height={300} />
+        <Example title="Basic">
+          <PlouffeRay width={300} height={300} />
+        </Example>
 
-        <h1>Animate N</h1>
-        <AnimatedN width={300} height={300} interval={30} start={5} end={150}/>
+        <Example title="Animate N">
+          <AnimatedN width={300} height={300} interval={100} start={5} end={300} k={17}/>
+        </Example>
 
-        <h1>Animate K</h1>
-        <AnimatedK width={300} height={300} interval={100} start={2} end={100} n={101}/>
+        <Example title="Animate K">
+          <AnimatedK width={300} height={300} interval={100} start={2} end={100} n={101}/>
+        </Example>
       </div>
     )
   }
