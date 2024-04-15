@@ -20,9 +20,11 @@ const PlouffeRay: React.FC<Props> = ({
   showLabels = false,
   color = '#0000FF',
 }) => {
+  const padding = 300;
   const cx = width/2;
   const cy = height/2;
-  const r = width/2.1;
+  const r = width/2 - padding;
+  const labelR = width/2 - 20;
 
   return (
     <svg width={width} height={height}>
@@ -35,7 +37,7 @@ const PlouffeRay: React.FC<Props> = ({
         }
         {
           showLabels && Array(n).fill(0).map((_, i) => (
-            <text x={cx + 1.05*r*Math.cos(i/n * 2 * Math.PI - Math.PI/2)} y={cy + 1.05*r*Math.sin(i/n * 2 * Math.PI - Math.PI/2)} >{i}</text>
+            <text x={cx + labelR*Math.cos(i/n * 2 * Math.PI - Math.PI/2)} y={cy + labelR*Math.sin(i/n * 2 * Math.PI - Math.PI/2)} >{i}</text>
           ))
         }
       </g>

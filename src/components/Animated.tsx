@@ -21,11 +21,11 @@ const Animated: React.FC<Props> = ({
   const maxTicks = end - start;
   const {tick: t, started, start: startFn, stop, setTick} = useIntervalTimer({interval, maxTicks});
 
-  const plouffeProps = { ...props, ...animateFunction(t, props)};
+  const plouffeProps = { ...props, ...animateFunction(t + start, props)};
 
   return (
     <div style={{width}}>
-      <PlouffeRay width={width} {...plouffeProps}  />;
+      <PlouffeRay width={width} {...plouffeProps}  />
       <Controls n={t} max={maxTicks} started={started} start={startFn} stop={stop} setTick={setTick} />
     </div>
   );
